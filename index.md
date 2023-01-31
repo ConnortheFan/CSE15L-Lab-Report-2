@@ -75,6 +75,11 @@ After:
 }
 ```
 
+The main issue with the code was that if there were multiple instances of the lowest number, it would properly not include them in the sum, but when calculating the 
+average by dividing the sum by the number of numbers, it would only do `arr.length - 1`, assuming that there was only 1 instance of the lowest number. 
+
+The way to fix this was to create a counter called `removed` which would iterate every time a number wasn't included in the sum. Then, when returning the average, the sum would properly divide by `arr.length - removed` which would give an accurate number of numbers included in the sum.
+
 Final Code:
 
 ![Screenshot_20230130_101415](https://user-images.githubusercontent.com/110417453/215681172-b033c04a-0bfb-49c1-a24a-4d7be79c198c.png)
