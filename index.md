@@ -20,4 +20,66 @@ The second `/add-message` adds `12345dsfs` to the running String. Similar to the
 ---
 
 # Part 2
-## Bugs from Lab 3
+## Bug from Lab 3
+
+### ArrayExamples.averageWithoutLowest(double[] arr)
+
+Original Code:
+
+![Screenshot_20230130_101116](https://user-images.githubusercontent.com/110417453/215680771-231e6b48-8298-49d9-9912-13df741380cf.png)
+
+### Passing test
+
+```
+    @Test
+    public void testAverageWithoutLowestPass() {
+        double[] input = {1, 2, 3};
+        double average = ArrayExamples.averageWithoutLowest(input);
+        assertEquals(2.5, average, 0.001);
+    }
+```
+
+![Screenshot_20230130_102438](https://user-images.githubusercontent.com/110417453/215682935-8be57896-6407-4d29-bdb8-d298db1db3ef.png)
+
+### Failing test
+
+```
+    @Test
+    public void testAverageWithoutLowestFail() {
+        double[] input1 = {1,1,2,2};
+        double average = ArrayExamples.averageWithoutLowest(input1);
+        assertEquals(2, average, 0);
+    }
+```
+
+![Screenshot_20230130_102514](https://user-images.githubusercontent.com/110417453/215683042-cdd30049-b8b5-4f5d-9e38-5446a5f33b3c.png)
+
+### Required change:
+
+Before:
+```
+    for(double num: arr) {
+        if(num != lowest) { sum += num; }
+    } 
+    return sum / (arr.length - 1);
+}
+```
+
+After:
+```
+    for(double num: arr) {
+        if(num != lowest) { sum += num; }
+        else {removed++;}
+    } 
+    return sum / (arr.length - removed);
+}
+```
+
+Final Code:
+
+![Screenshot_20230130_101415](https://user-images.githubusercontent.com/110417453/215681172-b033c04a-0bfb-49c1-a24a-4d7be79c198c.png)
+
+---
+
+# Part 3
+
