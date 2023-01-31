@@ -87,4 +87,12 @@ Final Code:
 ---
 
 # Part 3
+## What I have learned
 
+### Lab 2
+
+From lab 2, the main thing I learned was how to incorporate code into a webapp as well as how to host a website locally. Previously, I was only aware of creating GitHub Pages using markdown/HTML without any actual code. Now I know how to use paths and querys to run commands on my webserver. Using a webserver, I can also store variables in the heap, making them values that can be accessed and altered by anyone who accesses my website.
+
+### Lab 3
+
+Lab 3 mainly concered bugtesting and finding symptoms of bugs. I was already somewhat aware of this before this lab, so I didn't learn too much, but what was new was how MAC users and Windows users need different commands to access the same path. I had assumed that since downloading `git bash`, the commands would be able to run the same no matter the operating system. However, from seeing the different in how MAC users just had `.:` while Windows users had `".;` in front of a file path was interesting.
