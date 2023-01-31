@@ -1,2 +1,18 @@
 # Part 1
 ## StringServer
+
+StringServer code:
+![Screenshot 2023-01-30 205254](https://user-images.githubusercontent.com/110417453/215668731-230517e5-ffb4-40f9-b45d-6569f3d52996.png)
+![Screenshot 2023-01-30 205221](https://user-images.githubusercontent.com/110417453/215668757-47cde082-d29f-4670-a63c-255264f351d2.png)
+
+Add message: Hello
+
+![Screenshot_20230130_085448](https://user-images.githubusercontent.com/110417453/215669195-a8d8d01f-884b-4257-a1a1-a5f7f9d2bcee.png)
+
+From the URI `/add-message?s=Hello`, the handleRequest method is called from the Handler class. Since it contains `/add-message`, the code will then try to find the parameters. The code runs `url.getQuery().split("=")` which returns everything after the `?` in the URI, and splits it on the `=` sign. Since the first part of the query is correctly identified as `s`, the code then runs the method `addString(parameters[1])`. This adds the argument from the query, `Hello`, to the running String with a line break `\n` at the end. The handler then returns the running String, which now is `Hello\n`.
+
+Add message: 12345dsfs
+
+![Screenshot_20230130_085503](https://user-images.githubusercontent.com/110417453/215669256-4ba4332f-48d5-447b-9d8c-465442292d5b.png)
+
+The second `/add-message` adds `12345dsfs` to the running String. Similar to the first instance above, the handleRequest method is called and since the URI contains `add-message`, the query is found and split into parameters. The `addString(parameters[1])` method is called to add `12345dsfs` to the running String. Before this, the running String was `Hello\n`, but after `addString` is called, the new running String is `Hello\n12345dsfs\n`. The `\n` indicate new lines, which result in the newest message to be displayed below the first message.
